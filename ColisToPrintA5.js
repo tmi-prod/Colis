@@ -2087,7 +2087,6 @@ export class ColisListPrint extends React.PureComponent {
       { name: 'Refusé', code: 9, disabled: true }
     ];
 
-
     const fillColisCodeList = () => {
       colisCodeList.push(parseInt(colis.Number.substring(13)));
       if (parseInt(colis.UnitsNumber) > 1) {
@@ -2099,8 +2098,6 @@ export class ColisListPrint extends React.PureComponent {
     }
 
     fillColisCodeList();
-    console.log("dddddd " + colisCodeList.length)
-
 
     const listContent = colisCodeList.map((codeValue) =>
       <div style={{ size: "148mm 210mm" }}>
