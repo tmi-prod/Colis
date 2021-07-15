@@ -14,7 +14,7 @@ import { PdfExport, HtmlExport, XlsxExport, Core } from '@grapecity/activereport
 
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import ColisListPrint  from './ColisToPrintA5';
+import ColisListPrint from './ColisToPrintA5';
 
 
 import { Toolbar } from 'primereact/toolbar';
@@ -26,6 +26,24 @@ import { SplitButton } from 'primereact/splitbutton';
 function App() {
     const componentRef = useRef();
 
+    const pageStyle = `
+  @page {
+    size: 148mm 210mm;
+  }
+
+  @media all {
+    .pagebreak {
+      display: none;
+    }
+  }
+
+  @media print {
+    .pagebreak {
+      page-break-before: always;
+    }
+  }
+`;
+
     // event to print :
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -33,15 +51,17 @@ function App() {
     );
 
     const rightContents = (
+
         <React.Fragment>
             <Button label="Print" icon="pi pi-print" className="p-button-danger p-mr-2" onClick={handlePrint}></Button>
         </React.Fragment>
     );
 
     return (
+        //style={{ size: "148mm 210mm" }}
         <div >
             <Toolbar right={rightContents} />
-            <div style={{ size: "148mm 210mm" }}><ColisListPrint ref={componentRef} /></div>
+            <div ><ColisListPrint ref={componentRef} /></div>
         </div>
     );
 }

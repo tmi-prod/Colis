@@ -16,7 +16,7 @@ const Content = (props) => {
 
  
   return (
-    <div style={{display: 'flex',flexDirection: 'column',alignItems: 'center',justifyContent: 'center', padding: '30px', margin: '15px',marginTop: '40px', borderStyle: 'ridge', }}>
+    <div style={{display: 'flex',flexDirection: 'column',alignItems: 'center',justifyContent: 'center', padding: '15px', margin: '15px',marginTop: '50px', borderStyle: 'ridge', }}>
  
       <div className="card">
         <div className="p-d-flex">

@@ -2097,11 +2097,18 @@ export class ColisListPrint extends React.PureComponent {
             
         }
     }
-    console.log(fillColisCodeList())
+
     fillColisCodeList();
+    console.log("dddddd "+colisCodeList.length)
+    
 
     const listContent = colisCodeList.map((codeValue) =>
-     <div style={{ size: "148mm 210mm" }}><Content indexPartie={codeValue} colis={colis} commune={communes} wilayas={wilayas} pays={pays} status={status} /></div>
+     <div style={{ size: "148mm 210mm" }}>
+       <Content indexPartie={codeValue} colis={colis} commune={communes} wilayas={wilayas} pays={pays} status={status} />
+        {//,pageBreakAfter:'always'
+        console.log("index = "+colisCodeList.indexOf(codeValue)%2)}
+       { colisCodeList.indexOf(codeValue)%2 === 1 ? <div style={{ pageBreakAfter:'always' }}></div> : null }
+      </div>
     )
 
     return (
