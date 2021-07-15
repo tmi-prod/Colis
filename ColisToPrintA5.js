@@ -2090,24 +2090,22 @@ export class ColisListPrint extends React.PureComponent {
 
     const fillColisCodeList = () => {
       colisCodeList.push(parseInt(colis.Number.substring(13)));
-        if (parseInt(colis.UnitsNumber) > 1) {
-            for (var index in colis.SerialNumberParts) {
-              colisCodeList.push(parseInt(colis.SerialNumberParts[index].Number.substring(13)))     
-            }
-            
+      if (parseInt(colis.UnitsNumber) > 1) {
+        for (var index in colis.SerialNumberParts) {
+          colisCodeList.push(parseInt(colis.SerialNumberParts[index].Number.substring(13)))
         }
+
+      }
     }
 
     fillColisCodeList();
-    console.log("dddddd "+colisCodeList.length)
-    
+    console.log("dddddd " + colisCodeList.length)
+
 
     const listContent = colisCodeList.map((codeValue) =>
-     <div style={{ size: "148mm 210mm" }}>
-       <Content indexPartie={codeValue} colis={colis} commune={communes} wilayas={wilayas} pays={pays} status={status} />
-        {//,pageBreakAfter:'always'
-        console.log("index = "+colisCodeList.indexOf(codeValue)%2)}
-       { colisCodeList.indexOf(codeValue)%2 === 1 ? <div style={{ pageBreakAfter:'always' }}></div> : null }
+      <div style={{ size: "148mm 210mm" }}>
+        <Content indexPartie={codeValue} colis={colis} commune={communes} wilayas={wilayas} pays={pays} status={status} />
+        {colisCodeList.indexOf(codeValue) % 2 === 1 ? <div style={{ pageBreakAfter: 'always' }}></div> : null}
       </div>
     )
 
